@@ -18,7 +18,7 @@ import java.util.regex.Pattern
 
 
 object Constants {
-    const val BASE_URL_ADDRESS = ""
+    const val BASE_URL_ADDRESS = "https://api.themoviedb.org/3/"
 
 }
 
