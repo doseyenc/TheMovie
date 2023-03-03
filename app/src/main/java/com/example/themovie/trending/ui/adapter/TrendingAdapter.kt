@@ -1,7 +1,8 @@
-package com.example.themovie.trending.ui
+package com.example.themovie.trending.ui.adapter
 
 import android.view.ViewGroup
 import com.example.themovie.common.adapter.BaseRecyclerViewAdapter
+import com.example.themovie.common.util.Constants.BASE_URL_IMAGE
 import com.example.themovie.common.util.createPlaceHolder
 import com.example.themovie.common.util.inflate
 import com.example.themovie.common.util.setImage
@@ -21,7 +22,7 @@ class TrendingAdapter @Inject constructor() :
                 textViewTrendingName.text = item.title
                 textViewVoteAverage.text = "${item.voteAverage}/10"
                 imageViewPoster.setImage(
-                    url = item.posterPath,
+                    url = BASE_URL_IMAGE+item.posterPath,
                     createPlaceHolder(context = root.context)
                 )
                 cardViewTrending.setOnClickListener {

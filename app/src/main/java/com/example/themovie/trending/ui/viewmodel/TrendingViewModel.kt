@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 
 @HiltViewModel
-class GetTripViewModel @Inject constructor(
+class TrendingViewModel @Inject constructor(
     private val trendingUseCase: TrendingUseCase
 ) : BaseViewModel() {
 
