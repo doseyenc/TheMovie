@@ -1,7 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TheMovie</string>
     <string name="movie_poster">movie_poster</string>
     <string name="star_icon">star icon</string>
-    <!-- TODO: Remove or change this placeholder text -->
-
 </resources>
