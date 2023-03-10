@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-<item
-    android:id="@+id/trendingFragment"
-    android:icon="@drawable/ic_trending"
-    android:title="@string/trending"
-    android:orderInCategory="1"
-    android:checkable="true"
-    android:iconTint="@color/white"
-    android:titleCondensed="@string/trending" />
+    <item
+        android:id="@+id/trendingFragment"
+        android:icon="@drawable/ic_trending"
+        android:title="@string/trending" />
 
     <item
         android:id="@+id/profileFragment"
-        android:icon="@drawable/ic_trending"
-        android:title="@string/trending"
-        android:orderInCategory="1"
-        android:checkable="true"
-        android:iconTint="@color/white"
-        android:titleCondensed="@string/trending" />
+        android:icon="@drawable/ic_profile"
+        android:title="@string/profile" />
 </menu>

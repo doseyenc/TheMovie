@@ -3,4 +3,5 @@
     <string name="movie_poster">movie_poster</string>
     <string name="star_icon">star icon</string>
     <string name="trending">Trending</string>
+    <string name="profile">Profile</string>
 </resources>
