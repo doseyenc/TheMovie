@@ -20,7 +20,7 @@ class TrendingAdapter @Inject constructor() :
         override fun bind(item: TrendingDataResultsData) {
             with(binding) {
                 textViewTrendingName.text = item.title
-                textViewVoteAverage.text = "${item.voteAverage}/10"
+                textViewVoteAverage.text = "${item.voteAverage.toString().substring(0,3)}/10"
                 imageViewPoster.setImage(
                     url = BASE_URL_IMAGE+item.posterPath,
                     createPlaceHolder(context = root.context)
