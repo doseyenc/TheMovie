@@ -1,9 +1,9 @@
-package com.example.themovie.trending.di
+package com.example.themovie.detail.di
 
 import com.example.themovie.common.util.Constants
-import com.example.themovie.trending.data.source.TrendingDataSource
-import com.example.themovie.trending.data.source.remote.TrendingRemoteDataSource
-import com.example.themovie.trending.data.source.service.TrendingService
+import com.example.themovie.detail.data.source.DetailDataSource
+import com.example.themovie.detail.data.source.remote.DetailRemoteDataSource
+import com.example.themovie.detail.data.source.service.DetailService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,23 +15,23 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class TrendingModule {
+class DetailModule {
 
     @Singleton
     @Provides
-    fun provideTrendingService(): TrendingService {
+    fun provideDetailService(): DetailService {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_ADDRESS)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
-            .create(TrendingService::class.java)
+            .create(DetailService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideTrendingRemoteDataSourceBuilder(): TrendingDataSource.Remote {
-        return TrendingRemoteDataSource(provideTrendingService())
+    fun provideDetailRemoteDataSourceBuilder(): DetailDataSource.Remote {
+        return DetailRemoteDataSource(provideDetailService())
     }
 
 }
