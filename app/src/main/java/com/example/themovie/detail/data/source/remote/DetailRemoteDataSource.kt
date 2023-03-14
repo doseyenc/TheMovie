@@ -19,6 +19,5 @@ class DetailRemoteDataSource @Inject constructor(
             token = token,
             id = id
         ).toObservable()
-
     }
 }
