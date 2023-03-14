@@ -20,7 +20,6 @@ import java.util.regex.Pattern
 object Constants {
     const val BASE_URL_ADDRESS = "https://api.themoviedb.org/3/"
     const val BASE_URL_IMAGE = "https://image.tmdb.org/t/p/w500"
-    const val ACCESS_TOKEN = "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI4NWQyODA1ZmVlZWUyMDJjZWRkOGM2ZWViNzg0NWFjOCIsInN1YiI6IjYyZWQxN2JhZDAzNmI2MDA2ZmZlODkyNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.5SNm9248xl6QHq0gpTqU3843VViUqg3etDfDsA5TsAI"
 
 }
 

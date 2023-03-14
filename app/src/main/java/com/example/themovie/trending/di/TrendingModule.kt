@@ -1,5 +1,6 @@
 package com.example.themovie.trending.di
 
+import com.example.themovie.BuildConfig
 import com.example.themovie.common.util.Constants
 import com.example.themovie.trending.data.source.TrendingDataSource
 import com.example.themovie.trending.data.source.remote.TrendingRemoteDataSource
