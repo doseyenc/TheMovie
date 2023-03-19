@@ -2,8 +2,9 @@ package com.example.themovie.detail.domain.mapper
 
 import com.example.themovie.detail.data.model.DetailResponse
 import com.example.themovie.detail.domain.model.DetailData
+import javax.inject.Inject
 
-class DetailMapper {
+class DetailMapper @Inject constructor() {
 
     fun mapResultsFromResponse(
         response: DetailResponse?

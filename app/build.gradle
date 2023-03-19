@@ -92,4 +92,7 @@ dependencies {
 
     //Lottie
     implementation "com.airbnb.android:lottie:5.2.0"
+
+    //Expandable Text View
+    implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.3'
 }
