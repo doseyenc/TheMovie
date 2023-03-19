@@ -12,4 +12,6 @@ data class DetailData(
     val popularity: Double?,
     val originalLanguage: String?,
     val originalTitle: String?,
+    val budget: Int?,
+    val revenue: Int?,
 )

@@ -21,6 +21,8 @@ class DetailMapper @Inject constructor() {
             popularity = response?.popularity,
             originalLanguage = response?.originalLanguage,
             originalTitle = response?.originalTitle,
+            budget = response?.budget,
+            revenue = response?.revenue,
         )
     }
 }
