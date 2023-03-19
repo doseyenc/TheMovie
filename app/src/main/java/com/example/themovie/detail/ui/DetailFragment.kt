@@ -13,6 +13,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     private fun setupViewModel() {
 
+
     }
 
     private fun setupView() {
