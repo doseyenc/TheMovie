@@ -39,6 +39,7 @@
 
             <ImageView
                 android:id="@+id/imageViewBack"
+                android:contentDescription="@string/back_arrow"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginStart="16dp"
@@ -82,6 +83,7 @@
 
                 <ImageView
                     android:id="@+id/imageViewSave"
+                    android:contentDescription="@string/save_icon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
@@ -110,7 +112,7 @@
 
                 <TextView
                     android:id="@+id/textViewGenre"
-                    android:text="Tür: "
+                    android:text="@string/genre"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/expand_tv"
                     style="@style/subtitleStyle" />
@@ -125,7 +127,7 @@
 
                 <TextView
                     android:id="@+id/textViewBudget"
-                    android:text="Bütçe: "
+                    android:text="@string/budget"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewGenre"
                     style="@style/subtitleStyle" />
@@ -140,7 +142,7 @@
 
                 <TextView
                     android:id="@+id/textViewReleaseDate"
-                    android:text="Çıkış Tarihi: "
+                    android:text="@string/releaseDate"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewBudget"
                     style="@style/subtitleStyle" />
@@ -155,7 +157,7 @@
 
                 <TextView
                     android:id="@+id/textViewRevenue"
-                    android:text="Hasılat: "
+                    android:text="@string/revenue"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewReleaseDate"
                     style="@style/subtitleStyle" />
@@ -170,7 +172,7 @@
 
                 <TextView
                     android:id="@+id/textViewRuntime"
-                    android:text="Süre: "
+                    android:text="@string/runtime"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRevenueValue"
                     style="@style/subtitleStyle" />
@@ -185,7 +187,7 @@
 
                 <TextView
                     android:id="@+id/textViewVoteAverage"
-                    android:text="Oy Ortalaması: "
+                    android:text="@string/vote_average"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewRuntime"
                     style="@style/subtitleStyle" />
@@ -199,7 +201,7 @@
 
                 <TextView
                     android:id="@+id/textViewVoteCount"
-                    android:text="Oy Sayısı: "
+                    android:text="@string/vote_count"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/textViewVoteAverage"
                     style="@style/subtitleStyle" />
