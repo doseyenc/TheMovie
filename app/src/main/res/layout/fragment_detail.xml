@@ -119,7 +119,6 @@
                             expandableTextView:readLessText="Daha Az Gör"
                             expandableTextView:textMode="line"
                             expandableTextView:isExpanded="true"
-                            expandableTextView:readMoreTextColor="@color/primary"
                             app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewMoviePoster"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

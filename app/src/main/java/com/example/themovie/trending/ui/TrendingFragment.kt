@@ -4,7 +4,7 @@ package com.example.themovie.trending.ui
 import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.themovie.BuildConfig
+
 import com.example.themovie.common.util.getDeviceLanguage
 import com.example.themovie.common.view.BaseFragment
 import com.example.themovie.databinding.FragmentTrendingBinding
@@ -26,16 +26,16 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
     }
 
     private fun setupViewModel() {
-        val apiKey = BuildConfig.API_KEY
+        /*val apiKey = BuildConfig.API_KEY
         with(trendingViewModel){
             getTrending(
                 language = getDeviceLanguage(),
                 token = "Bearer $apiKey"
             )
-            getStateLiveData().observe(viewLifecycleOwner){
+            getStateLiveData().observe(viewLifecycleOwner) {
                 renderStatusTrendingViewState(it)
             }
-        }
+        }*/
     }
 
     private fun renderStatusTrendingViewState(viewState: TrendingStatusViewState) =
@@ -72,10 +72,13 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
         setUpCitySearchRv()
         with(binding) {
             trendingAdapter.onTrendingClick = {
-
+                if (it.id != null) {
+                  //  navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(it.id!!))
+                }
             }
         }
     }
+
     private fun setUpCitySearchRv() {
         with(binding.trendingRv) {
             layoutManager = GridLayoutManager(context, 2)
