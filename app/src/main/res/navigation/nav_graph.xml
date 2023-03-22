@@ -9,10 +9,27 @@
         android:id="@+id/trendingFragment"
         android:name="com.example.themovie.trending.ui.TrendingFragment"
         android:label="fragment_trending"
-        tools:layout="@layout/fragment_trending" />
+        tools:layout="@layout/fragment_trending" >
+        <action
+            android:id="@+id/action_trendingFragment_to_detailFragment"
+            app:destination="@id/movieDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.themovie.profile.ui.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/movieDetailFragment"
+        android:name="com.example.themovie.detail.ui.MovieDetailFragment"
+        android:label="fragment_detail"
+        tools:layout="@layout/fragment_movie_detail" >
+        <action
+            android:id="@+id/action_detailFragment_to_trendingFragment"
+            app:destination="@id/trendingFragment" />
+        <argument
+            android:name="movieId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
 </navigation>

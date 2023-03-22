@@ -29,4 +29,7 @@
         <!-- Required -->
         <item name="postSplashScreenTheme">@style/Theme.TheMovie</item>
     </style>
+    <style name="ShapeAppearanceOverlay.App.CornerSize10Percent" parent="">
+        <item name="cornerSize">10%</item>
+    </style>
 </resources>

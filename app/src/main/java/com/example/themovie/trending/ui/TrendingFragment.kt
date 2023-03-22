@@ -1,11 +1,9 @@
 package com.example.themovie.trending.ui
 
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.themovie.common.util.Constants.ACCESS_TOKEN
+import com.example.themovie.common.util.Constants.API_KEY
 import com.example.themovie.common.util.getDeviceLanguage
 import com.example.themovie.common.view.BaseFragment
 import com.example.themovie.databinding.FragmentTrendingBinding
@@ -27,12 +25,13 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
     }
 
     private fun setupViewModel() {
+        val apiKey = API_KEY
         with(trendingViewModel){
             getTrending(
                 language = getDeviceLanguage(),
-                token = "Bearer $ACCESS_TOKEN"
+                token = "Bearer $apiKey"
             )
-            getStateLiveData().observe(viewLifecycleOwner){
+            getStateLiveData().observe(viewLifecycleOwner) {
                 renderStatusTrendingViewState(it)
             }
         }
@@ -48,34 +47,37 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
 
     private fun errorHandle(throwable: Throwable) {
         binding.trendingStateLayout.loading()
-        Log.e("TrendingFragment", "errorHandle: ${throwable.localizedMessage}")
+
     }
 
     private fun displayData(trendingData: TrendingData?) {
         binding.trendingStateLayout.content()
         trendingData?.results?.let { trendingAdapter.setItems(it) }
-        Log.e("TrendingFragment", "displayData: ${trendingData?.results}")
+
 
     }
 
     private fun emptyState() {
         binding.trendingStateLayout.loading()
-        Log.e("TrendingFragment", "emptyState: ")
+
     }
 
     private fun loadingInProgress() {
         binding.trendingStateLayout.loading()
-        Log.e("TrendingFragment", "loadingInProgress: ")
+
     }
 
     private fun setupView() {
         setUpCitySearchRv()
         with(binding) {
             trendingAdapter.onTrendingClick = {
-
+                if (it.id != null) {
+                    navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(it.id))
+                }
             }
         }
     }
+
     private fun setUpCitySearchRv() {
         with(binding.trendingRv) {
             layoutManager = GridLayoutManager(context, 2)
