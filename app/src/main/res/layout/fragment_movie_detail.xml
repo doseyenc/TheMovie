@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:expandableTextView="http://schemas.android.com/apk/res-auto"
+    tools:context=".detail.ui.MovieDetailFragment">
+
+    <com.erkutaras.statelayout.StateLayout
+        android:id="@+id/detailStateLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:sl_loadingAnimation="@anim/anim_blink"
+        app:sl_loadingLayout="@layout/layout_loading_with_animation"
+        app:sl_state="content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardViewHeader"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                app:cardElevation="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/textViewMovieTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="40dp"
+                        android:layout_marginEnd="40dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/poppins_medium"
+                        android:textColor="@color/title_text_color"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        tools:text="Fast an Furious Tokyo Drift" />
+
+                    <ImageView
+                        android:id="@+id/imageViewBack"
+                        android:contentDescription="@string/back_arrow"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginStart="16dp"
+                        android:src="@drawable/back_arrow"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <ScrollView
+                android:layout_width="391dp"
+                android:layout_height="799dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/cardViewHeader">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="1000dp"
+                    android:orientation="vertical">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.google.android.material.imageview.ShapeableImageView
+                            android:id="@+id/shapeableImageViewMoviePoster"
+                            android:layout_width="0dp"
+                            android:layout_height="250dp"
+                            android:layout_margin="10dp"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="32dp"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize10Percent"
+                            app:srcCompat="@mipmap/ic_launcher" />
+
+                        <ImageView
+                            android:id="@+id/imageViewSave"
+                            android:contentDescription="@string/save_icon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:layout_marginEnd="8dp"
+                            android:src="@drawable/ic_save"
+                            app:layout_constraintEnd_toEndOf="@+id/shapeableImageViewMoviePoster"
+                            app:layout_constraintTop_toTopOf="@+id/shapeableImageViewMoviePoster" />
+
+
+                        <io.github.glailton.expandabletextview.ExpandableTextView
+                            android:id="@+id/expand_tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginHorizontal="16dp"
+                            expandableTextView:collapsedLines="3"
+                            expandableTextView:animDuration="500"
+                            expandableTextView:readMoreText="Daha Fazla Gör"
+                            expandableTextView:readLessText="Daha Az Gör"
+                            expandableTextView:textMode="line"
+                            expandableTextView:isExpanded="true"
+                            app:layout_constraintTop_toBottomOf="@+id/shapeableImageViewMoviePoster"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:text="@string/mock_long_text" />
+
+
+
+                        <TextView
+                            android:id="@+id/textViewBudget"
+                            android:text="@string/budget"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/expand_tv"
+                            style="@style/subtitleStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewBudgetValue"
+                            tools:text="5000000"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewBudget"
+                            app:layout_constraintTop_toTopOf="@+id/textViewBudget"
+                            style="@style/subtitleValue" />
+
+                        <TextView
+                            android:id="@+id/textViewReleaseDate"
+                            android:text="@string/releaseDate"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewBudget"
+                            style="@style/subtitleStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewReleaseDateValue"
+                            tools:text="2002-12-19"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewReleaseDate"
+                            app:layout_constraintTop_toTopOf="@+id/textViewReleaseDate"
+                            style="@style/subtitleValue" />
+
+                        <TextView
+                            android:id="@+id/textViewRevenue"
+                            android:text="@string/revenue"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewReleaseDate"
+                            style="@style/subtitleStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewRevenueValue"
+                            tools:text="24000000"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewRevenue"
+                            app:layout_constraintTop_toTopOf="@+id/textViewRevenue"
+                            style="@style/subtitleValue" />
+
+                        <TextView
+                            android:id="@+id/textViewRuntime"
+                            android:text="@string/runtime"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewRevenueValue"
+                            style="@style/subtitleStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewRuntimeValue"
+                            tools:text="135 dk"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewRuntime"
+                            app:layout_constraintTop_toTopOf="@+id/textViewRuntime"
+                            style="@style/subtitleValue" />
+
+                        <TextView
+                            android:id="@+id/textViewVoteAverage"
+                            android:text="@string/vote_average"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewRuntime"
+                            style="@style/subtitleStyle" />
+                        <TextView
+                            android:id="@+id/textViewVoteAverageValue"
+                            tools:text="7.345"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewVoteAverage"
+                            app:layout_constraintTop_toTopOf="@+id/textViewVoteAverage"
+                            style="@style/subtitleValue" />
+
+                        <TextView
+                            android:id="@+id/textViewVoteCount"
+                            android:text="@string/vote_count"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewVoteAverage"
+                            style="@style/subtitleStyle" />
+
+                        <TextView
+                            android:id="@+id/textViewVoteCountValue"
+                            tools:text="2067"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewVoteCount"
+                            app:layout_constraintTop_toTopOf="@+id/textViewVoteCount"
+                            style="@style/subtitleValue" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </LinearLayout>
+                   </ScrollView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.erkutaras.statelayout.StateLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

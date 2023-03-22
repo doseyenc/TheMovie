@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="subtitleStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:fontFamily">@font/poppins_extrabold</item>
+        <item name="android:textColor">@color/title_text_color</item>
+    </style>
+
+    <style name="subtitleValue">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginStart">8dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:fontFamily">@font/poppins_semibold_italic</item>
+    </style>
+</resources>
