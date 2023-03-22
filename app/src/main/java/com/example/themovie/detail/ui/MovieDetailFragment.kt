@@ -1,6 +1,7 @@
 package com.example.themovie.detail.ui
 
 
+import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.themovie.common.util.Constants.API_KEY
@@ -10,7 +11,7 @@ import com.example.themovie.common.util.createPlaceHolder
 import com.example.themovie.common.util.getDeviceLanguage
 import com.example.themovie.common.util.setImage
 import com.example.themovie.common.view.BaseFragment
-import com.example.themovie.databinding.FragmentDetailBinding
+import com.example.themovie.databinding.FragmentMovieDetailBinding
 import com.example.themovie.detail.domain.model.DetailData
 import com.example.themovie.detail.ui.viewmodel.DetailViewModel
 import com.example.themovie.detail.ui.viewstate.DetailStatusViewState
@@ -18,13 +19,15 @@ import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
-class DetailFragment : BaseFragment<FragmentDetailBinding>() {
+class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
     private val detailViewModel: DetailViewModel by viewModels()
-    private val args: DetailFragmentArgs by navArgs()
+    private val args: MovieDetailFragmentArgs by navArgs()
 
     override fun init() {
         setupView()
         setupViewModel()
+        hideStatusBar()
+        hideNavigationBar()
     }
 
     private fun setupViewModel() {
@@ -52,11 +55,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     private fun errorHandle(throwable: Throwable) {
         binding.detailStateLayout.loading()
-        //Timber.e(throwable)
+        Log.e("MovieDetailErrorHandle", throwable.toString())
     }
 
     private fun displayData(detailData: DetailData?) {
-        //Timber.e(detailData.toString())
+        Log.e("MovieDetail", detailData.toString())
         with(binding) {
             detailStateLayout.content()
             textViewMovieTitle.text = detailData?.originalTitle
@@ -76,16 +79,16 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
 
     private fun emptyState() {
         binding.detailStateLayout.loading()
-       // Timber.e("emptyState")
+        Log.e("MovieDetail", "emptyState")
     }
 
     private fun loadingInProgress() {
         binding.detailStateLayout.loading()
-       // Timber.e("loadingInProgress")
+        Log.e("MovieDetail", "loadingInProgress")
     }
 
     private fun setupView() {
-        with(binding){
+        with(binding) {
             imageViewBack.setOnClickListener {
                 requireActivity().onBackPressed()
             }
