@@ -18,7 +18,6 @@ android {
         versionCode 1
         versionName "1.0"
 
-        buildConfigField("String", "API_KEY", api_key)
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -61,7 +60,7 @@ dependencies {
     implementation 'com.github.erkutaras:StateLayout:1.5.0'
 
     // hilt
-    implementation'com.google.dagger:hilt-android:2.44'
+    implementation 'com.google.dagger:hilt-android:2.44'
     kapt 'com.google.dagger:hilt-android-testing:2.42'
     kapt 'com.google.dagger:hilt-compiler:2.44'
 
@@ -96,6 +95,4 @@ dependencies {
     //Expandable Text View
     implementation 'io.github.glailton.expandabletextview:expandabletextview:1.0.3'
 
-    //Timber
-    implementation 'com.jakewharton.timber:timber:5.0.1'
 }

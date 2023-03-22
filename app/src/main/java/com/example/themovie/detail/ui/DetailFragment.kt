@@ -3,6 +3,7 @@ package com.example.themovie.detail.ui
 
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.themovie.common.util.Constants.API_KEY
 
 import com.example.themovie.common.util.Constants.BASE_URL_IMAGE
 import com.example.themovie.common.util.createPlaceHolder
@@ -14,7 +15,7 @@ import com.example.themovie.detail.domain.model.DetailData
 import com.example.themovie.detail.ui.viewmodel.DetailViewModel
 import com.example.themovie.detail.ui.viewstate.DetailStatusViewState
 import dagger.hilt.android.AndroidEntryPoint
-import timber.log.Timber
+
 
 @AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
@@ -26,17 +27,17 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     }
 
     private fun setupViewModel() {
-       /* val apiKey = BuildConfig.API_KEY
+        val apiKey = API_KEY
         with(detailViewModel) {
             getDetail(
                 language = getDeviceLanguage(),
                 token = "Bearer $apiKey",
-                id = args.id
+                id = 5
             )
             getStateLiveData().observe(viewLifecycleOwner) {
                 renderDetailStatusViewState(it)
             }
-        }*/
+        }
 
     }
 
