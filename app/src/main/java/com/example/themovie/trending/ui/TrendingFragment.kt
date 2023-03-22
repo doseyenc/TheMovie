@@ -1,11 +1,9 @@
 package com.example.themovie.trending.ui
 
 
-import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.themovie.common.util.Constants.API_KEY
-
 import com.example.themovie.common.util.getDeviceLanguage
 import com.example.themovie.common.view.BaseFragment
 import com.example.themovie.databinding.FragmentTrendingBinding
@@ -14,7 +12,6 @@ import com.example.themovie.trending.ui.adapter.TrendingAdapter
 import com.example.themovie.trending.ui.viewmodel.TrendingViewModel
 import com.example.themovie.trending.ui.viewstate.TrendingStatusViewState
 import dagger.hilt.android.AndroidEntryPoint
-
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -75,7 +72,7 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
         with(binding) {
             trendingAdapter.onTrendingClick = {
                 if (it.id != null) {
-                    //navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(it.id))
+                    navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment())
                 }
             }
         }
