@@ -72,7 +72,7 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
         with(binding) {
             trendingAdapter.onTrendingClick = {
                 if (it.id != null) {
-                    navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment())
+                    navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(it.id))
                 }
             }
         }

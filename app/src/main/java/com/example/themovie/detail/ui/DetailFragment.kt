@@ -20,6 +20,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     private val detailViewModel: DetailViewModel by viewModels()
+    private val args: DetailFragmentArgs by navArgs()
 
     override fun init() {
         setupView()
@@ -32,7 +33,7 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
             getDetail(
                 language = getDeviceLanguage(),
                 token = "Bearer $apiKey",
-                id = 5
+                id = args.movieId
             )
             getStateLiveData().observe(viewLifecycleOwner) {
                 renderDetailStatusViewState(it)
@@ -84,7 +85,11 @@ class DetailFragment : BaseFragment<FragmentDetailBinding>() {
     }
 
     private fun setupView() {
-
+        with(binding){
+            imageViewBack.setOnClickListener {
+                requireActivity().onBackPressed()
+            }
+        }
     }
 
 }
