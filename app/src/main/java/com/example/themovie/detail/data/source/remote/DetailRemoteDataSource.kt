@@ -1,6 +1,6 @@
 package com.example.themovie.detail.data.source.remote
 
-import com.example.themovie.detail.data.model.DetailResponse
+import com.example.themovie.detail.data.model.MovieDetailResponse
 import com.example.themovie.detail.data.source.DetailDataSource
 import com.example.themovie.detail.data.source.service.DetailService
 import io.reactivex.rxjava3.core.Observable
@@ -13,7 +13,7 @@ class DetailRemoteDataSource @Inject constructor(
         language: String,
         token: String,
         id: Int,
-    ): Observable<DetailResponse> {
+    ): Observable<MovieDetailResponse> {
         return detailService.getDetail(
             language = language,
             token = token,
