@@ -3,12 +3,12 @@ package com.example.themovie.detail.data.repository
 import com.example.themovie.common.extensions.Resource
 import com.example.themovie.common.extensions.ResourceReactiveExtensions.remote
 import com.example.themovie.detail.data.model.MovieDetailResponse
-import com.example.themovie.detail.data.source.DetailDataSource
+import com.example.themovie.detail.data.source.MovieDetailDataSource
 import io.reactivex.rxjava3.core.Observable
 import javax.inject.Inject
 
-class DetailRepository @Inject constructor(
-    private val detailDataSource: DetailDataSource.Remote
+class MovieDetailRepository @Inject constructor(
+    private val movieDetailDataSource: MovieDetailDataSource.Remote
 ) {
 
     fun getDetail(
@@ -16,7 +16,7 @@ class DetailRepository @Inject constructor(
         token: String,
         id: Int,
     ): Observable<Resource<MovieDetailResponse>> {
-        return detailDataSource
+        return movieDetailDataSource
             .getDetail(
                 language = language,
                 token = token,

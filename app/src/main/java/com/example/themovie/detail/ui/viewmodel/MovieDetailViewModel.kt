@@ -3,22 +3,22 @@ package com.example.themovie.detail.ui.viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.example.themovie.common.extensions.ResourceReactiveExtensions.subscribe
-import com.example.themovie.detail.domain.model.DetailData
-import com.example.themovie.detail.domain.usecase.DetailUseCase
-import com.example.themovie.detail.ui.viewstate.DetailStatusViewState
+import com.example.themovie.detail.domain.model.MovieDetailData
+import com.example.themovie.detail.domain.usecase.MovieDetailUseCase
+import com.example.themovie.detail.ui.viewstate.MovieDetailStatusViewState
 import com.tourist.common.viewmodel.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
 @HiltViewModel
-class DetailViewModel @Inject constructor(
-    private val detailUseCase: DetailUseCase
+class MovieDetailViewModel @Inject constructor(
+    private val movieDetailUseCase: MovieDetailUseCase
 ) : BaseViewModel() {
 
-    private val stateLiveData: MutableLiveData<DetailStatusViewState> = MutableLiveData()
+    private val stateLiveData: MutableLiveData<MovieDetailStatusViewState> = MutableLiveData()
 
-    fun getStateLiveData(): LiveData<DetailStatusViewState> = stateLiveData
+    fun getStateLiveData(): LiveData<MovieDetailStatusViewState> = stateLiveData
 
 
     fun getDetail(
@@ -26,7 +26,7 @@ class DetailViewModel @Inject constructor(
         token: String,
         id : Int
     ) {
-        detailUseCase
+        movieDetailUseCase
             .getDetail(
                 token = token,
                 language = language,
@@ -46,16 +46,16 @@ class DetailViewModel @Inject constructor(
             )
     }
 
-    private fun onGetDetailResponseReady(detailData: DetailData) {
-        stateLiveData.value = DetailStatusViewState.Success(detailData)
+    private fun onGetDetailResponseReady(movieDetailData: MovieDetailData) {
+        stateLiveData.value = MovieDetailStatusViewState.Success(movieDetailData)
     }
 
     private fun onGetDetailLoading() {
-        stateLiveData.value = DetailStatusViewState.Loading
+        stateLiveData.value = MovieDetailStatusViewState.Loading
     }
 
     private fun onGetDetailResponseFail(throwable: Throwable) {
-        stateLiveData.value = DetailStatusViewState.Error(throwable)
+        stateLiveData.value = MovieDetailStatusViewState.Error(throwable)
     }
 
 

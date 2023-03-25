@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Path
 
-interface DetailService {
+interface MovieDetailService {
 
     @GET("movie/{id}")
     fun getDetail(

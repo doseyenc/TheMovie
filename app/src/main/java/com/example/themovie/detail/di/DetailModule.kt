@@ -1,9 +1,9 @@
 package com.example.themovie.detail.di
 
 import com.example.themovie.common.util.Constants
-import com.example.themovie.detail.data.source.DetailDataSource
-import com.example.themovie.detail.data.source.remote.DetailRemoteDataSource
-import com.example.themovie.detail.data.source.service.DetailService
+import com.example.themovie.detail.data.source.MovieDetailDataSource
+import com.example.themovie.detail.data.source.remote.MovieDetailRemoteDataSource
+import com.example.themovie.detail.data.source.service.MovieDetailService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,19 +19,19 @@ class DetailModule {
 
     @Singleton
     @Provides
-    fun provideDetailService(): DetailService {
+    fun provideDetailService(): MovieDetailService {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_ADDRESS)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
-            .create(DetailService::class.java)
+            .create(MovieDetailService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideDetailRemoteDataSourceBuilder(): DetailDataSource.Remote {
-        return DetailRemoteDataSource(provideDetailService())
+    fun provideDetailRemoteDataSourceBuilder(): MovieDetailDataSource.Remote {
+        return MovieDetailRemoteDataSource(provideDetailService())
     }
 
 }
