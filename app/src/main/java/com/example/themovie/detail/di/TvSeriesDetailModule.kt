@@ -1,9 +1,9 @@
 package com.example.themovie.detail.di
 
 import com.example.themovie.common.util.Constants
-import com.example.themovie.detail.data.source.MovieDetailDataSource
-import com.example.themovie.detail.data.source.remote.MovieDetailRemoteDataSource
-import com.example.themovie.detail.data.source.service.MovieDetailService
+import com.example.themovie.detail.data.source.TvSeriesDetailDataSource
+import com.example.themovie.detail.data.source.remote.TvSeriesDetailRemoteDataSource
+import com.example.themovie.detail.data.source.service.TvSeriesDetailService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -15,23 +15,23 @@ import javax.inject.Singleton
 
 @Module
 @InstallIn(SingletonComponent::class)
-class DetailModule {
+class TvSeriesDetailModule {
 
     @Singleton
     @Provides
-    fun provideDetailService(): MovieDetailService {
+    fun provideTvSeriesDetailService(): TvSeriesDetailService {
         return Retrofit.Builder()
             .baseUrl(Constants.BASE_URL_ADDRESS)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .build()
-            .create(MovieDetailService::class.java)
+            .create(TvSeriesDetailService::class.java)
     }
 
     @Singleton
     @Provides
-    fun provideDetailRemoteDataSourceBuilder(): MovieDetailDataSource.Remote {
-        return MovieDetailRemoteDataSource(provideDetailService())
+    fun provideTvServiceDetailRemoteDataSourceBuilder(): TvSeriesDetailDataSource.Remote {
+        return TvSeriesDetailRemoteDataSource(provideTvSeriesDetailService())
     }
 
 }
