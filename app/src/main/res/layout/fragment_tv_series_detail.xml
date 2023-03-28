@@ -126,42 +126,14 @@
                             expandableTextView:textMode="line" />
 
 
-                        <TextView
-                            android:id="@+id/textViewBudget"
-                            style="@style/subtitleStyle"
-                            android:text="@string/budget"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/expand_tv" />
 
-                        <TextView
-                            android:id="@+id/textViewBudgetValue"
-                            style="@style/subtitleValue"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textViewBudget"
-                            app:layout_constraintTop_toTopOf="@+id/textViewBudget"
-                            tools:text="5000000" />
-
-                        <TextView
-                            android:id="@+id/textViewReleaseDate"
-                            style="@style/subtitleStyle"
-                            android:text="@string/releaseDate"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewBudget" />
-
-                        <TextView
-                            android:id="@+id/textViewReleaseDateValue"
-                            style="@style/subtitleValue"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textViewReleaseDate"
-                            app:layout_constraintTop_toTopOf="@+id/textViewReleaseDate"
-                            tools:text="2002-12-19" />
 
                         <TextView
                             android:id="@+id/textViewFirstAirDate"
                             style="@style/subtitleStyle"
                             android:text="@string/firstAirDate"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewReleaseDate" />
+                            app:layout_constraintTop_toBottomOf="@+id/expand_tv" />
 
                         <TextView
                             android:id="@+id/textViewFirstAirDateValue"
