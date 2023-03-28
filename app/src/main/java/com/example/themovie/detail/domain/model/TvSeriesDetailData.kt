@@ -17,4 +17,6 @@ data class TvSeriesDetailData(
     val numberOfSeasons: Int?,
     val status: String?,
     val type: String?,
+    val genres: List<GenreData>?,
+
 )
