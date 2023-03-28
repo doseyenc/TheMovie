@@ -12,15 +12,15 @@ import com.example.themovie.common.util.getDeviceLanguage
 import com.example.themovie.common.util.setImage
 import com.example.themovie.common.view.BaseFragment
 import com.example.themovie.databinding.FragmentMovieDetailBinding
-import com.example.themovie.detail.domain.model.DetailData
-import com.example.themovie.detail.ui.viewmodel.DetailViewModel
-import com.example.themovie.detail.ui.viewstate.DetailStatusViewState
+import com.example.themovie.detail.domain.model.MovieDetailData
+import com.example.themovie.detail.ui.viewmodel.MovieDetailViewModel
+import com.example.themovie.detail.ui.viewstate.MovieDetailStatusViewState
 import dagger.hilt.android.AndroidEntryPoint
 
 
 @AndroidEntryPoint
 class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
-    private val detailViewModel: DetailViewModel by viewModels()
+    private val movieDetailViewModel: MovieDetailViewModel by viewModels()
     private val args: MovieDetailFragmentArgs by navArgs()
 
     override fun init() {
@@ -32,7 +32,7 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
 
     private fun setupViewModel() {
         val apiKey = API_KEY
-        with(detailViewModel) {
+        with(movieDetailViewModel) {
             getDetail(
                 language = getDeviceLanguage(),
                 token = "Bearer $apiKey",
@@ -45,12 +45,12 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
 
     }
 
-    private fun renderDetailStatusViewState(viewState: DetailStatusViewState) =
+    private fun renderDetailStatusViewState(viewState: MovieDetailStatusViewState) =
         when (viewState) {
-            is DetailStatusViewState.Loading -> loadingInProgress()
-            is DetailStatusViewState.Empty -> emptyState()
-            is DetailStatusViewState.Success -> displayData(viewState.detailData)
-            is DetailStatusViewState.Error -> errorHandle(viewState.throwable)
+            is MovieDetailStatusViewState.Loading -> loadingInProgress()
+            is MovieDetailStatusViewState.Empty -> emptyState()
+            is MovieDetailStatusViewState.Success -> displayData(viewState.movieDetailData)
+            is MovieDetailStatusViewState.Error -> errorHandle(viewState.throwable)
         }
 
     private fun errorHandle(throwable: Throwable) {
@@ -58,21 +58,21 @@ class MovieDetailFragment : BaseFragment<FragmentMovieDetailBinding>() {
         Log.e("MovieDetailErrorHandle", throwable.toString())
     }
 
-    private fun displayData(detailData: DetailData?) {
-        Log.e("MovieDetail", detailData.toString())
+    private fun displayData(movieDetailData: MovieDetailData?) {
+        Log.e("MovieDetail", movieDetailData.toString())
         with(binding) {
             detailStateLayout.content()
-            textViewMovieTitle.text = detailData?.originalTitle
+            textViewMovieTitle.text = movieDetailData?.originalTitle
             shapeableImageViewMoviePoster.setImage(
-                BASE_URL_IMAGE + "/" + detailData?.posterPath,
+                BASE_URL_IMAGE + "/" + movieDetailData?.posterPath,
                 createPlaceHolder(requireContext())
             )
-            expandTv.text = detailData?.overview
-            textViewBudgetValue.text = detailData?.budget.toString()
-            textViewRevenueValue.text = detailData?.revenue.toString()
-            textViewReleaseDateValue.text = detailData?.releaseDate
-            textViewVoteAverageValue.text = detailData?.voteAverage.toString()
-            textViewVoteCountValue.text = detailData?.voteCount.toString()
+            expandTv.text = movieDetailData?.overview
+            textViewBudgetValue.text = movieDetailData?.budget.toString()
+            textViewRevenueValue.text = movieDetailData?.revenue.toString()
+            textViewReleaseDateValue.text = movieDetailData?.releaseDate
+            textViewVoteAverageValue.text = movieDetailData?.voteAverage.toString()
+            textViewVoteCountValue.text = movieDetailData?.voteCount.toString()
         }
 
     }

@@ -2,7 +2,7 @@ package com.example.themovie.detail.data.model
 
 import com.google.gson.annotations.SerializedName
 
-data class DetailResponse(
+data class MovieDetailResponse(
     @SerializedName("adult")
     val adult: Boolean?,
 
@@ -52,7 +52,7 @@ data class DetailResponse(
     val releaseDate: String?,
 
     @SerializedName("revenue")
-    val revenue: Int?,
+    val revenue: Long?,
 
     @SerializedName("runtime")
     val runtime: Int?,

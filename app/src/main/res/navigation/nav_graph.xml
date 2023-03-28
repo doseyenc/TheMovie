@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_trendingFragment_to_detailFragment"
             app:destination="@id/movieDetailFragment" />
+        <action
+            android:id="@+id/action_trendingFragment_to_tvSeriesDetailFragment"
+            app:destination="@id/tvSeriesDetailFragment"
+            app:enterAnim="@anim/from_left" />
     </fragment>
     <fragment
         android:id="@+id/profileFragment"
@@ -26,9 +30,22 @@
         tools:layout="@layout/fragment_movie_detail" >
         <action
             android:id="@+id/action_detailFragment_to_trendingFragment"
-            app:destination="@id/trendingFragment" />
+            app:destination="@id/trendingFragment"
+            app:enterAnim="@anim/from_left" />
         <argument
             android:name="movieId"
+            app:argType="integer"
+            android:defaultValue="0" />
+    </fragment>
+    <fragment
+        android:id="@+id/tvSeriesDetailFragment"
+        android:name="com.example.themovie.detail.ui.TvSeriesDetailFragment"
+        android:label="TvSeriesDetailFragment" >
+        <action
+            android:id="@+id/action_tvSeriesDetailFragment_to_trendingFragment"
+            app:destination="@id/trendingFragment" />
+        <argument
+            android:name="tvSeriesId"
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>
