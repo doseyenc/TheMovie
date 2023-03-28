@@ -157,33 +157,33 @@
                             tools:text="2002-12-19" />
 
                         <TextView
-                            android:id="@+id/textViewRevenue"
+                            android:id="@+id/textViewFirstAirDate"
                             style="@style/subtitleStyle"
-                            android:text="@string/revenue"
+                            android:text="@string/firstAirDate"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/textViewReleaseDate" />
 
                         <TextView
-                            android:id="@+id/textViewRevenueValue"
+                            android:id="@+id/textViewFirstAirDateValue"
                             style="@style/subtitleValue"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textViewRevenue"
-                            app:layout_constraintTop_toTopOf="@+id/textViewRevenue"
+                            app:layout_constraintStart_toEndOf="@+id/textViewFirstAirDate"
+                            app:layout_constraintTop_toTopOf="@+id/textViewFirstAirDate"
                             tools:text="24000000" />
 
                         <TextView
-                            android:id="@+id/textViewRuntime"
+                            android:id="@+id/textViewLastAirDate"
                             style="@style/subtitleStyle"
-                            android:text="@string/runtime"
+                            android:text="@string/lastAirDate"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewRevenueValue" />
+                            app:layout_constraintTop_toBottomOf="@+id/textViewFirstAirDateValue" />
 
                         <TextView
-                            android:id="@+id/textViewRuntimeValue"
+                            android:id="@+id/textViewLastAirDateValue"
                             style="@style/subtitleValue"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toEndOf="@+id/textViewRuntime"
-                            app:layout_constraintTop_toTopOf="@+id/textViewRuntime"
+                            app:layout_constraintStart_toEndOf="@+id/textViewLastAirDate"
+                            app:layout_constraintTop_toTopOf="@+id/textViewLastAirDate"
                             tools:text="135 dk" />
 
                         <TextView
@@ -191,7 +191,7 @@
                             style="@style/subtitleStyle"
                             android:text="@string/vote_average"
                             app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toBottomOf="@+id/textViewRuntime" />
+                            app:layout_constraintTop_toBottomOf="@+id/textViewLastAirDate" />
 
                         <TextView
                             android:id="@+id/textViewVoteAverageValue"
@@ -214,6 +214,51 @@
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toEndOf="@+id/textViewVoteCount"
                             app:layout_constraintTop_toTopOf="@+id/textViewVoteCount"
+                            tools:text="2067" />
+
+                        <TextView
+                            android:id="@+id/textViewNumberOfEpisodes"
+                            style="@style/subtitleStyle"
+                            android:text="@string/numberOfEpisodes"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewVoteCount" />
+
+                        <TextView
+                            android:id="@+id/textViewNumberOfEpisodesValue"
+                            style="@style/subtitleValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewNumberOfEpisodes"
+                            app:layout_constraintTop_toTopOf="@+id/textViewNumberOfEpisodes"
+                            tools:text="2067" />
+
+                        <TextView
+                            android:id="@+id/textViewNumberOfSeasons"
+                            style="@style/subtitleStyle"
+                            android:text="@string/numberOfSeasons"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewNumberOfEpisodes" />
+
+                        <TextView
+                            android:id="@+id/textViewNumberOfSeasonsValue"
+                            style="@style/subtitleValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewNumberOfSeasons"
+                            app:layout_constraintTop_toTopOf="@+id/textViewNumberOfSeasons"
+                            tools:text="2067" />
+
+                        <TextView
+                            android:id="@+id/textViewGenres"
+                            style="@style/subtitleStyle"
+                            android:text="@string/genres"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/textViewNumberOfSeasons" />
+
+                        <TextView
+                            android:id="@+id/textViewGenresValue"
+                            style="@style/subtitleValue"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/textViewGenres"
+                            app:layout_constraintTop_toTopOf="@+id/textViewGenres"
                             tools:text="2067" />
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
