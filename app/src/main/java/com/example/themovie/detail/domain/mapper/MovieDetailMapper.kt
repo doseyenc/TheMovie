@@ -1,15 +1,15 @@
 package com.example.themovie.detail.domain.mapper
 
-import com.example.themovie.detail.data.model.DetailResponse
-import com.example.themovie.detail.domain.model.DetailData
+import com.example.themovie.detail.data.model.MovieDetailResponse
+import com.example.themovie.detail.domain.model.MovieDetailData
 import javax.inject.Inject
 
-class DetailMapper @Inject constructor() {
+class MovieDetailMapper @Inject constructor() {
 
     fun mapResultsFromResponse(
-        response: DetailResponse?
-    ): DetailData {
-        return DetailData(
+        response: MovieDetailResponse?
+    ): MovieDetailData {
+        return MovieDetailData(
             id = response?.id,
             title = response?.title,
             overview = response?.overview,

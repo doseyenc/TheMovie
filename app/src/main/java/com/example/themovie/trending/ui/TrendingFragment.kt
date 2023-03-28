@@ -26,7 +26,7 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
 
     private fun setupViewModel() {
         val apiKey = API_KEY
-        with(trendingViewModel){
+        with(trendingViewModel) {
             getTrending(
                 language = getDeviceLanguage(),
                 token = "Bearer $apiKey"
@@ -72,7 +72,20 @@ class TrendingFragment : BaseFragment<FragmentTrendingBinding>() {
         with(binding) {
             trendingAdapter.onTrendingClick = {
                 if (it.id != null) {
-                    navigate(TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(it.id))
+                    if (it.mediaType == "movie")
+                        navigate(
+                            TrendingFragmentDirections.actionTrendingFragmentToDetailFragment(
+                                it.id
+                            )
+                        )
+                    else if (it.mediaType == "tv") {
+                        navigate(
+                            TrendingFragmentDirections.actionTrendingFragmentToTvSeriesDetailFragment(
+                                it.id
+                            )
+                        )
+                    }
+
                 }
             }
         }

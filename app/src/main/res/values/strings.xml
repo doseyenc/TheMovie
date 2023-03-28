@@ -16,6 +16,11 @@
     <string name="genre">Tür:</string>
     <string name="back_arrow">back arrow</string>
     <string name="save_icon">save icon</string>
+    <string name="firstAirDate">İlk yayın tarihi</string>
+    <string name="lastAirDate">Son yayın tarihi</string>
+    <string name="numberOfEpisodes">Bölüm Sayısı</string>
+    <string name="numberOfSeasons">Sezon Sayısı</string>
+    <string name="genres">Tür</string>
     <!-- TODO: Remove or change this placeholder text -->
 
 </resources>

@@ -1,6 +1,6 @@
 package com.example.themovie.detail.domain.model
 
-data class DetailData(
+data class MovieDetailData(
     val id: Int?,
     val title: String?,
     val overview: String?,
@@ -13,5 +13,5 @@ data class DetailData(
     val originalLanguage: String?,
     val originalTitle: String?,
     val budget: Int?,
-    val revenue: Int?,
+    val revenue: Long?,
 )
