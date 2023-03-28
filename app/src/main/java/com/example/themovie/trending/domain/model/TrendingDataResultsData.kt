@@ -1,8 +1,11 @@
 package com.example.themovie.trending.domain.model
 
+import okhttp3.MediaType
+
 data class TrendingDataResultsData(
     val backdrop_path: String? = null,
     val id: Int? = null,
+    val mediaType: String? = null,
     val originalLanguage: String? = null,
     val originalTitle: String? = null,
     val overview: String? = null,

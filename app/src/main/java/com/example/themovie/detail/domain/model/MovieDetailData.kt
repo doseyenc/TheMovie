@@ -13,5 +13,5 @@ data class MovieDetailData(
     val originalLanguage: String?,
     val originalTitle: String?,
     val budget: Int?,
-    val revenue: Int?,
+    val revenue: Long?,
 )

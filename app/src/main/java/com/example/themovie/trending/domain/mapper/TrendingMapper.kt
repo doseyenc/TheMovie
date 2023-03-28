@@ -22,6 +22,7 @@ class TrendingMapper @Inject constructor() {
         return results?.map {
             TrendingDataResultsData(
                 id = it.id,
+                mediaType = it.mediaType,
                 title = it.title,
                 overview = it.overview,
                 posterPath = it.poster_path,

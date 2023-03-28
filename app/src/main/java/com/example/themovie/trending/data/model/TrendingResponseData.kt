@@ -30,6 +30,9 @@ data class TrendingResponseData(
     @SerializedName("poster_path")
     val poster_path: String? = null,
 
+    @SerializedName("media_type")
+    val mediaType: String? = null,
+
     @SerializedName("release_date")
     val release_date: String? = null,
 

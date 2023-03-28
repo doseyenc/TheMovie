@@ -3,6 +3,7 @@ package com.example.themovie.detail.ui
 import android.util.Log
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
+import com.example.themovie.common.util.Constants
 import com.example.themovie.common.util.Constants.API_KEY
 import com.example.themovie.common.util.createPlaceHolder
 import com.example.themovie.common.util.getDeviceLanguage
@@ -12,8 +13,9 @@ import com.example.themovie.databinding.FragmentTvSeriesDetailBinding
 import com.example.themovie.detail.domain.model.TvSeriesDetailData
 import com.example.themovie.detail.ui.viewmodel.TvSeriesDetailViewModel
 import com.example.themovie.detail.ui.viewstate.TvSeriesDetailStatusViewState
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class TvSeriesDetailFragment : BaseFragment<FragmentTvSeriesDetailBinding>() {
     private val tvSeriesDetailViewModel: TvSeriesDetailViewModel by viewModels()
     private val args: TvSeriesDetailFragmentArgs by navArgs()
@@ -56,16 +58,16 @@ class TvSeriesDetailFragment : BaseFragment<FragmentTvSeriesDetailBinding>() {
             tvSeriesDetailData?.let {
                 textViewMovieTitle.text = it.name
                 shapeableImageViewMoviePoster.setImage(
-                    it.posterPath,
+                    Constants.BASE_URL_IMAGE + "/" + it.posterPath,
                     createPlaceHolder(requireContext())
                 )
                 expandTv.text = it.overview
-                textViewFirstAirDate.text = it.firstAirDate
-                textViewLastAirDate.text = it.lastAirDate
-                textViewVoteAverage.text = it.voteAverage.toString()
-                textViewVoteCount.text = it.voteCount.toString()
-                textViewNumberOfEpisodes.text = it.numberOfEpisodes.toString()
-                textViewNumberOfSeasons.text = it.numberOfSeasons.toString()
+                textViewFirstAirDateValue.text = it.firstAirDate
+                textViewLastAirDateValue.text = it.lastAirDate
+                textViewVoteAverageValue.text = it.voteAverage.toString()
+                textViewVoteCountValue.text = it.voteCount.toString()
+                textViewNumberOfEpisodesValue.text = it.numberOfEpisodes.toString()
+                textViewNumberOfSeasonsValue.text = it.numberOfSeasons.toString()
                 textViewGenresValue.text =
                     it.genres?.joinToString { genreData -> genreData.name.toString() }
             }
