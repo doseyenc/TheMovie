@@ -8,7 +8,7 @@ import retrofit2.http.Header
 interface SearchService {
 
     @GET("search/multi")
-    fun getTrending(
+    fun getSearchResults(
         @Header("Authorization") token: String,
         @Header("Accept-Language") language: String,
         @Header("query") query: String,
