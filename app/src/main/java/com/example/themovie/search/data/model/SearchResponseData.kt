@@ -44,5 +44,5 @@ data class SearchResponseData(
 
     @SerializedName("vote_count")
     val vote_count: Int
-    
+
 )
