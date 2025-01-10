@@ -3,50 +3,57 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/trendingFragment">
+    app:startDestination="@id/mainFragment">
 
     <fragment
-        android:id="@+id/trendingFragment"
-        android:name="com.example.themovie.trending.ui.TrendingFragment"
-        android:label="fragment_trending"
-        tools:layout="@layout/fragment_trending" >
+        android:id="@+id/mainFragment"
+        android:name="com.doseyenc.main.ui.MainFragment"
+        android:label="MainFragment"
+        tools:layout="@layout/fragment_main">
         <action
-            android:id="@+id/action_trendingFragment_to_detailFragment"
-            app:destination="@id/movieDetailFragment" />
-        <action
-            android:id="@+id/action_trendingFragment_to_tvSeriesDetailFragment"
-            app:destination="@id/tvSeriesDetailFragment"
-            app:enterAnim="@anim/from_left" />
+            android:id="@+id/action_mainFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
-        android:id="@+id/profileFragment"
-        android:name="com.example.themovie.profile.ui.ProfileFragment"
-        android:label="fragment_profile"
-        tools:layout="@layout/fragment_profile" />
-    <fragment
-        android:id="@+id/movieDetailFragment"
-        android:name="com.example.themovie.detail.ui.MovieDetailFragment"
+        android:id="@+id/detailFragment"
+        android:name="com.doseyenc.detail.ui.DetailFragment"
         android:label="fragment_detail"
-        tools:layout="@layout/fragment_movie_detail" >
-        <action
-            android:id="@+id/action_detailFragment_to_trendingFragment"
-            app:destination="@id/trendingFragment"
-            app:enterAnim="@anim/from_left" />
+        tools:layout="@layout/fragment_detail">
         <argument
-            android:name="movieId"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_detailFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
+
     <fragment
-        android:id="@+id/tvSeriesDetailFragment"
-        android:name="com.example.themovie.detail.ui.TvSeriesDetailFragment"
-        android:label="TvSeriesDetailFragment" >
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.doseyenc.popular.ui.PopularMoviesFragment"
+        android:label="PopularMoviesFragment"
+        tools:layout="@layout/fragment_popular_movies">
         <action
-            android:id="@+id/action_tvSeriesDetailFragment_to_trendingFragment"
-            app:destination="@id/trendingFragment" />
-        <argument
-            android:name="tvSeriesId"
-            app:argType="integer"
-            android:defaultValue="0" />
+            android:id="@+id/action_popularMoviesFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
+            app:enterAnim="@anim/slide_in_left"
+            app:exitAnim="@anim/slide_out_right"
+            app:popEnterAnim="@anim/slide_in_right"
+            app:popExitAnim="@anim/slide_out_left" />
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_detailFragment"
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right" />
     </fragment>
 </navigation>

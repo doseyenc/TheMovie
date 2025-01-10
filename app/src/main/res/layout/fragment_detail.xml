@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="model"
+            type="com.doseyenc.detail.ui.DetailViewModel" />
+
+        <variable
+            name="movie"
+            type="com.doseyenc.detail.data.model.MovieDetailResponse" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.DetailFragment">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/scrollableContent"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/discoverPopularMoviesButton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/backdropImage"
+                    android:layout_width="0dp"
+                    android:layout_height="200dp"
+                    android:scaleType="centerCrop"
+                    app:imageUrl="@{movie.backdropPath}"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@color/green" />
+
+                <TextView
+                    android:id="@+id/movieRating"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_normal"
+                    android:layout_marginTop="@dimen/spacing_normal"
+                    android:drawablePadding="@dimen/spacing_xsmall"
+                    android:text="@{model.getAverageRating(movie.voteAverage)}"
+                    android:textAppearance="?attr/textAppearanceBody1"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/spacing_normal_large_sp"
+                    app:drawableStartCompat="@drawable/ic_star"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/backdropImage"
+                    tools:text="7.8" />
+
+                <TextView
+                    android:id="@+id/totalRatingText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="0dp"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="/10"
+                    android:textColor="@color/light_grey"
+                    android:textSize="@dimen/spacing_normal_large_sp"
+                    app:layout_constraintBottom_toBottomOf="@id/movieRating"
+                    app:layout_constraintStart_toEndOf="@id/movieRating"
+                    app:layout_constraintTop_toTopOf="@id/movieRating"
+                    tools:text="/10" />
+
+                <TextView
+                    android:id="@+id/releaseDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    android:drawablePadding="@dimen/spacing_small"
+                    android:fontFamily="@font/roboto_medium"
+                    android:text="@{model.formatReleaseDate(movie.releaseDate)}"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/spacing_normal_large_sp"
+                    app:drawableStartCompat="@drawable/ic_dot"
+                    app:layout_constraintStart_toEndOf="@id/totalRatingText"
+                    app:layout_constraintTop_toTopOf="@id/totalRatingText"
+                    tools:text="05.11.2023" />
+
+                <TextView
+                    android:id="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_normal"
+                    android:fontFamily="@font/roboto_medium"
+                    android:paddingTop="@dimen/spacing_small"
+                    android:text="@{movie.title}"
+                    android:textAppearance="?attr/textAppearanceHeadline6"
+                    android:textColor="@color/title_color"
+                    android:textSize="@dimen/spacing_medium_sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/movieRating"
+                    tools:text="Venom: The Last Dance" />
+
+                <TextView
+                    android:id="@+id/overview"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="@dimen/spacing_normal"
+                    android:paddingTop="@dimen/spacing_tiny"
+                    android:text="@{movie.overview}"
+                    android:textAppearance="?attr/textAppearanceBody2"
+                    android:textColor="@color/grey"
+                    android:textSize="@dimen/spacing_normal_sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/title"
+                    tools:text="@string/long_lorem_ipsum" />
+
+                <ImageView
+                    android:id="@+id/backButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/spacing_medium"
+                    android:layout_marginTop="@dimen/spacing_large"
+                    android:onClick="@{() -> model.onBackButtonClicked()}"
+                    android:src="@drawable/ic_arrow_back"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/discoverPopularMoviesButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/spacing_xxlarge"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:backgroundTint="@color/yellow"
+            android:fontFamily="@font/roboto_medium"
+            android:onClick="@{() -> model.navigatePopularMovies()}"
+            android:paddingVertical="@dimen/spacing_tiny"
+            android:text="@string/discover_popular_movies"
+            android:textColor="@color/black"
+            android:textSize="@dimen/spacing_normal_large_sp"
+            app:cornerRadius="@dimen/spacing_tiny"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
